@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { colors } from "@/shared/config/colors";
+import { colors } from "@/constants/colors";
 
 export default function TabsLayout() {
   return (
@@ -13,8 +13,7 @@ export default function TabsLayout() {
         },
         tabBarActiveTintColor: colors.accent.primary,
         tabBarInactiveTintColor: colors.text.tertiary,
-      }}
-    >
+      }}>
       <Tabs.Screen name="index" options={{ title: "홈" }} />
       <Tabs.Screen name="map" options={{ title: "지도" }} />
       <Tabs.Screen name="upload" options={{ title: "기록" }} />

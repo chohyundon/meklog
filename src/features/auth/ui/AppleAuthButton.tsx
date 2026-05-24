@@ -39,28 +39,12 @@ export function AppleAuthButton({
     }
   };
 
-  const handleOAuthAppleLogin = async () => {
-    onLoadingChange(true);
-
-    try {
-      await signInWithAppleOAuth();
-      await onSuccess();
-    } catch (err: unknown) {
-      if (isAppleLoginCancelled(err)) return;
-
-      console.error(err);
-      onError("Apple 로그인에 실패했어요. 다시 시도해주세요.");
-    } finally {
-      onLoadingChange(false);
-    }
-  };
-
   if (Platform.OS === "ios") {
     if (nativeButtonAvailable) {
       return (
         <AppleAuthentication.AppleAuthenticationButton
           buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
-          buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
+          buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.WHITE}
           cornerRadius={12}
           style={styles.nativeButton}
           onPress={handleNativeAppleLogin}
@@ -80,18 +64,6 @@ export function AppleAuthButton({
       />
     );
   }
-
-  return (
-    <Button
-      variant="secondary"
-      label=" Apple로 로그인"
-      onPress={handleOAuthAppleLogin}
-      loading={loading}
-      disabled={loading}
-      style={styles.fallbackButton}
-      accessibilityLabel="Apple로 로그인"
-    />
-  );
 }
 
 const styles = StyleSheet.create({

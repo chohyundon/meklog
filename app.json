@@ -9,9 +9,12 @@
     "scheme": "meoklog",
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.meoklog.app",
+      "bundleIdentifier": "meoklog.app",
       "usesAppleSignIn": true,
-      "appleTeamId": "863SZ2QQ6N"
+      "appleTeamId": "863SZ2QQ6N",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -21,7 +24,7 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.meoklog.app",
+      "package": "meoklog.app",
       "permissions": [
         "android.permission.RECORD_AUDIO"
       ]
@@ -33,7 +36,6 @@
     "plugins": [
       "expo-apple-authentication",
       "expo-router",
-      "expo-status-bar",
       "expo-secure-store",
       [
         "expo-notifications",
@@ -49,10 +51,18 @@
           "cameraPermission": "먹로그가 맛집 사진 촬영을 위해 카메라에 접근합니다."
         }
       ],
-      "expo-web-browser"
+      "expo-web-browser",
+      "@react-native-google-signin/google-signin"
     ],
     "experiments": {
-      "typedRoutes": true
+      "typedRoutes": true,
+      "tsconfigPaths": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "c0a87581-710d-4470-bee1-ed66eb2784aa"
+      }
     }
   }
 }
